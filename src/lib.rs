@@ -27,6 +27,10 @@ pub struct PeekyRead<'a, R: Read + 'a> {
 
 impl<'a, R: Read + 'a> Read for PeekyRead<'a, R> {
     fn read(&mut self, buf: &mut [u8]) -> Result<usize> {
+        if buf.is_empty() {
+            return Ok(0);
+        }
+
         match self.peeked {
             Some(c) => {
                 buf[0] = c;
