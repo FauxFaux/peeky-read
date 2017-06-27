@@ -3,4 +3,9 @@ name = "peeky-read"
 version = "0.1.0"
 authors = ["Chris West (Faux) <git@goeswhere.com>"]
 
+description = "Peek into an io::Read and see if we're at the EOF"
+repository = "https://github.com/FauxFaux/peeky-read"
+readme = "README.md"
+license = "MIT"
+
 [dependencies]
