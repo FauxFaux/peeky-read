@@ -1,5 +1,7 @@
-use std::io::{Cursor, Read};
-use ::PeekyRead;
+use std::io::Cursor;
+use std::io::Read;
+
+use PeekyRead;
 
 #[test]
 fn zero() {

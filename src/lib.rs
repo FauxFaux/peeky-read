@@ -18,7 +18,7 @@
 //! ```
 
 use std::io;
-use io::{Read, Result};
+use std::io::Read;
 
 pub struct PeekyRead<'a, R: Read + 'a> {
     inner: &'a mut R,
@@ -26,7 +26,7 @@ pub struct PeekyRead<'a, R: Read + 'a> {
 }
 
 impl<'a, R: Read + 'a> Read for PeekyRead<'a, R> {
-    fn read(&mut self, buf: &mut [u8]) -> Result<usize> {
+    fn read(&mut self, buf: &mut [u8]) -> io::Result<usize> {
         if buf.is_empty() {
             return Ok(0);
         }
@@ -52,7 +52,7 @@ impl<'a, R: Read> PeekyRead<'a, R> {
     }
 
     /// Check that `read`ing from this reader will return at least one byte.
-    pub fn check_eof(&mut self) -> Result<bool> {
+    pub fn check_eof(&mut self) -> io::Result<bool> {
         if self.peeked.is_some() {
             // we have something more to return; read won't return 0 bytes
             return Ok(false);
