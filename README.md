@@ -1,11 +1,8 @@
 ## peeky-read
 
-A single-struct library providing `PeekyRead`.
+This library is worse in every way than
+[iowrap](https://crates.io/crates/iowrap), which I wrote
+having forgotten that I'd written this library. `iowrap`
+calls it `Eof`. Use that instead.
 
-`PeekyRead` takes ownership of an `io::Read`,
-and provides a `check_eof() -> io::Result<bool>`.
-
-This is accomplished by actually reading a single
-byte from the underlying reader. The byte is stored,
-and returned automatically by the next `read()`, so
-nothing is lost, and the transition should be transparent.
+Humans, eh.
